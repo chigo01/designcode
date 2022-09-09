@@ -5,7 +5,7 @@ import '../model/sidebar.dart';
 
 class SidebarRow extends StatelessWidget {
   final SidebarItem item;
-  const SidebarRow({required this.item});
+ const SidebarRow({required this.item});
 
   @override
   Widget build(BuildContext context) {

@@ -17,7 +17,7 @@ class Course {
 }
 
 // Recent Courses
-var recentCourses = [
+List<Course> recentCourses = [
   Course(
     courseTitle: "Flutter for Designers",
     courseSubtitle: "12 sections",

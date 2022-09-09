@@ -5,6 +5,7 @@ import '../components/home_screen_navbar.dart';
 import '../components/lists/explore_course_list.dart';
 import '../components/lists/recent_course_list.dart';
 import '../constants.dart';
+
 class HomeScreenWidget extends StatefulWidget {
   const HomeScreenWidget({
     Key? key,
@@ -30,18 +31,25 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget>
     sidebarAnimation = Tween<Offset>(
       begin: const Offset(-1, 0),
       end: const Offset(0, 0),
-    ).animate(CurvedAnimation(
-        parent: sidebarAnimationController!, curve: Curves.easeInOut),);
+    ).animate(
+      CurvedAnimation(
+        parent: sidebarAnimationController!,
+        curve: Curves.easeInOut,
+      ),
+    );
     fadeAnimation = Tween<double>(
-      begin:  0.0,
+      begin: 0.0,
       end: 1.0,
-    ).animate(CurvedAnimation(
-        parent: sidebarAnimationController!, curve: Curves.easeInOut),);
-
-
+    ).animate(
+      CurvedAnimation(
+        parent: sidebarAnimationController!,
+        curve: Curves.easeInOut,
+      ),
+    );
   }
+
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
     sidebarAnimationController?.dispose();
   }
@@ -58,7 +66,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget>
                 children: [
                   HomeScreenNavBar(
                     triggerAnimation: () {
-                      setState((){
+                      setState(() {
                         sidebarHidden = !sidebarHidden;
                       });
                       sidebarAnimationController?.forward();
@@ -116,10 +124,11 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget>
                         width: MediaQuery.of(context).size.width,
                       ),
                       onTap: () {
-                        setState((){
+                        setState(() {
                           sidebarHidden = !sidebarHidden;
                         });
-                        sidebarAnimationController?.reverse();} ,
+                        sidebarAnimationController?.reverse();
+                      },
                     ),
                   ),
                   SlideTransition(
