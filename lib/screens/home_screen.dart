@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
+import 'package:untitled/screens/continue_watching_screen.dart';
 import 'package:untitled/screens/sidebar_screen.dart';
 
 import '../components/home_screen_navbar.dart';
@@ -25,7 +27,8 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget>
   initState() {
     super.initState();
     sidebarAnimationController = AnimationController(
-      vsync: this,
+      vsync:
+          this, // vsync takes track of the screen so flutter want create animation when the screen is not displayed
       duration: const Duration(microseconds: 250),
     );
     sidebarAnimation = Tween<Offset>(
@@ -57,6 +60,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         color: kBackgroundColor,
         child: Stack(
@@ -77,7 +81,8 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget>
                       horizontal: 20,
                     ),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      crossAxisAlignment: CrossAxisAlignment
+                          .stretch, // to span the entire width of the design
                       children: [
                         Text(
                           'Recents',
@@ -111,7 +116,9 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget>
                 ],
               ),
             ),
+            const ContinueWatchingScreen(),
             IgnorePointer(
+              //that accepts a gestures
               ignoring: sidebarHidden,
               child: Stack(
                 children: [

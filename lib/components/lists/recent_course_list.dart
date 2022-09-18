@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../model/course.dart';
 import '../cards/recent_course_card.dart';
+
 class RecentCourseList extends StatefulWidget {
   const RecentCourseList({Key? key}) : super(key: key);
 
@@ -44,6 +45,7 @@ class _RecentCourseListState extends State<RecentCourseList> {
           height: 320,
           width: double.infinity,
           child: PageView.builder(
+            //page view is list widget that provides a snapping animation whenever the widget u want come into focus
             itemBuilder: (widget, index) {
               return Opacity(
                 opacity: currentPage == index ? 1.0 : 0.5,
