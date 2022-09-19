@@ -22,6 +22,8 @@ class _CertificateViewerState extends State<CertificateViewer> {
   void initState() {
     super.initState();
     List<Widget> imageChildren = [];
+    int random = Random().nextInt(3);
+    certificatePaths.shuffle();
 
     certificatePaths.reversed.toList().asMap().forEach((index, certificate) {
       int angleDegree;

@@ -42,8 +42,11 @@ class _ContinueWatchingListState extends State<ContinueWatchingList> {
           child: PageView.builder(
             itemCount: continueWatchingCourses.length,
             itemBuilder: ((context, index) {
-              return ContinueWatchingCard(
-                course: continueWatchingCourses[index],
+              return Opacity(
+                opacity: currentPage == index ? 1 : 0.5,
+                child: ContinueWatchingCard(
+                  course: continueWatchingCourses[index],
+                ),
               );
             }),
             onPageChanged: (index) {

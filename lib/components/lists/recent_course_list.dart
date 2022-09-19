@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/main.dart';
+import 'package:untitled/screens/course_screen.dart';
 
 import '../../model/course.dart';
 import '../cards/recent_course_card.dart';
@@ -41,15 +43,28 @@ class _RecentCourseListState extends State<RecentCourseList> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
+        SizedBox(
           height: 320,
           width: double.infinity,
           child: PageView.builder(
             //page view is list widget that provides a snapping animation whenever the widget u want come into focus
             itemBuilder: (widget, index) {
-              return Opacity(
-                opacity: currentPage == index ? 1.0 : 0.5,
-                child: RecentCourseCard(course: recentCourses[index]),
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CourseScreen(
+                        course: recentCourses[index],
+                      ),
+                      fullscreenDialog: true,
+                    ),
+                  );
+                },
+                child: Opacity(
+                  opacity: currentPage == index ? 1.0 : 0.5,
+                  child: RecentCourseCard(course: recentCourses[index]),
+                ),
               );
             },
             itemCount: recentCourses.length,

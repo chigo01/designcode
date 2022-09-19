@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:untitled/screens/continue_watching_screen.dart';
 import 'package:untitled/screens/sidebar_screen.dart';
 
@@ -66,54 +65,57 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget>
         child: Stack(
           children: [
             SafeArea(
-              child: Column(
-                children: [
-                  HomeScreenNavBar(
-                    triggerAnimation: () {
-                      setState(() {
-                        sidebarHidden = !sidebarHidden;
-                      });
-                      sidebarAnimationController?.forward();
-                    },
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    HomeScreenNavBar(
+                      triggerAnimation: () {
+                        setState(() {
+                          sidebarHidden = !sidebarHidden;
+                        });
+                        sidebarAnimationController?.forward();
+                      },
                     ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment
-                          .stretch, // to span the entire width of the design
-                      children: [
-                        Text(
-                          'Recents',
-                          style: kLargeTitleStyle,
-                        ),
-                        Text('23 courses, more coming', style: kSubtitleStyle),
-                        const SizedBox(height: 5.0),
-                      ],
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment
+                            .stretch, // to span the entire width of the design
+                        children: [
+                          Text(
+                            'Recents',
+                            style: kLargeTitleStyle,
+                          ),
+                          Text('23 courses, more coming',
+                              style: kSubtitleStyle),
+                          const SizedBox(height: 5.0),
+                        ],
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 20),
-                  const RecentCourseList(),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      left: 20,
-                      right: 20,
-                      top: 25,
-                      bottom: 16,
+                    const SizedBox(height: 20),
+                    const RecentCourseList(),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 20,
+                        right: 20,
+                        top: 25,
+                        bottom: 16,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Text(
+                            'Explore',
+                            style: kTitle1Style,
+                          ),
+                        ],
+                      ),
                     ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Text(
-                          'Explore',
-                          style: kTitle1Style,
-                        ),
-                      ],
-                    ),
-                  ),
-                  const ExploreCourseList(),
-                ],
+                    const ExploreCourseList(),
+                  ],
+                ),
               ),
             ),
             const ContinueWatchingScreen(),
