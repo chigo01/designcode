@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+
+
 import 'package:untitled/constants.dart';
 import 'package:untitled/model/course.dart';
 
-class ContinueWatchingCard extends StatelessWidget {
-  const ContinueWatchingCard({Key? key, required this.course})
+class CompletedWatchingCard extends StatelessWidget {
+  const CompletedWatchingCard({Key? key, required this.course})
       : super(key: key);
 
   final Course course;
@@ -11,9 +13,9 @@ class ContinueWatchingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.topCenter,
+
       child: Stack(
-        alignment: Alignment.topRight,
+        alignment: Alignment.topCenter,
         children: [
           Padding(
             padding: const EdgeInsets.only(top: 20.0, right: 20),
@@ -51,7 +53,7 @@ class ContinueWatchingCard extends StatelessWidget {
                               Image.asset(
                                 'asset/illustrations/${course.illustration}',
                                 fit: BoxFit.cover,
-                                height: 110,
+                                height: 140,
                               ),
                             ],
                           ),
@@ -85,13 +87,13 @@ class ContinueWatchingCard extends StatelessWidget {
           ),
           Padding(
             padding:
-                const EdgeInsets.only(left: 230, bottom: 12), //changed here
+            const EdgeInsets.only(left: 230, bottom: 12), //changed here
             child: Container(
               width: 60,
               height: 60,
               decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(18),
+                  borderRadius: BorderRadius.circular(16),
                   boxShadow: const [
                     BoxShadow(
                       color: kShadowColor,
